@@ -1,0 +1,42 @@
+{
+  "name": "angular-component-structure",
+  "version": "0.0.1",
+  "description": "This project is a simple idea of structure of a component to be followed in a project AngularJS 1.x.",
+  "homepage": "https://github.com/rodrigo-morais/angular-component-structure",
+  "main": "",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodrigo-morais/angular-compnent-structure.git"
+  },
+  "keywords": [
+    "AngularJS",
+    "structure",
+    "component"
+  ],
+  "author": "Rodrigo Morais",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rodrigo-morais/angular-component-structure/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-angular-templates": "^0.5.7",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-jshint": "~0.11.0",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-karma": "~0.10.1",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "~0.1",
+    "karma-coverage": "^0.2.7",
+    "karma-jasmine": "*",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
+    "load-grunt-tasks": "~3.1.0",
+    "time-grunt": "~1.0.0"
+  }
+}
