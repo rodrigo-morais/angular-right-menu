@@ -1,25 +1,25 @@
 {
-  "name": "angular-component-structure",
+  "name": "angular-right-menu",
   "version": "0.0.1",
-  "description": "This project is a simple idea of structure of a component to be followed in a project AngularJS 1.x.",
-  "homepage": "https://github.com/rodrigo-morais/angular-component-structure",
+  "description": "Component AngularJS to create a menu in right side of page.",
+  "homepage": "https://github.com/rodrigo-morais/angular-right-menu",
   "main": "",
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rodrigo-morais/angular-compnent-structure.git"
+    "url": "https://github.com/rodrigo-morais/angular-right-menu.git"
   },
   "keywords": [
     "AngularJS",
-    "structure",
+    "menu",
     "component"
   ],
   "author": "Rodrigo Morais",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rodrigo-morais/angular-component-structure/issues"
+    "url": "https://github.com/rodrigo-morais/angular-right-menu/issues"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
