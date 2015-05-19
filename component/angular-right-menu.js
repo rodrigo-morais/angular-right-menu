@@ -1,0 +1,1 @@
+var rmRightMenu = angular.module('rmRightMenu', []);
