@@ -11,4 +11,11 @@ describe('Unit test to COMPONENT', function() {
     $timeout = _$timeout_;
   }));
 
+  it('FAKE', function () {
+      var element = '<span></span>',
+          element2 = '<span></span>';
+
+      expect(element.html()).toContain(element2);
+  });
+
 });

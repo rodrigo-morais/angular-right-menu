@@ -2,11 +2,20 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         jshint: {
-          all: ['component/**/*.js', 'tests/unit/**/*.js']
+            options: {
+                strict: false,
+                node: true,
+                esnext: true,
+                globals: {
+                    angular: true,
+                    window: true
+                }
+            },
+            all: ['component/**/*.js', 'tests/unit/**/*.js']
         },
         ngtemplates:  {
             options: {
-                module: 'JsonPrettyPrint'
+                module: 'rmRightMenu'
             },
             app:  {
                 src:      'component/templates/**.html',
@@ -15,11 +24,11 @@ module.exports = function (grunt) {
         },
         concat: {
             app: {
-                src: [  'component/angular-script-name.js',
+                src: [  'component/angular-right-menu.js',
                         '<%= ngtemplates.app.dest %>',
                         'component/**/*.js'
                     ],
-                dest: 'dist/angular-script-name.js',
+                dest: 'dist/angular-right-menu.js',
             }
         },
         uglify: {
@@ -29,7 +38,7 @@ module.exports = function (grunt) {
               compress: true
             },
             files: {
-                'dist/angular-script-name.min.js': ['dist/angular-script-name.js']
+                'dist/angular-right-menu.min.js': ['dist/angular-right-menu.js']
             }
           }
         },
@@ -69,7 +78,7 @@ module.exports = function (grunt) {
           dummy: {
             cwd: './dist/',
             src: '**',
-            dest: 'tests/dummy/vendor/angular-script-name',
+            dest: 'tests/dummy/vendor/angular-right-menu',
             expand: true
           }
         },
@@ -85,7 +94,7 @@ module.exports = function (grunt) {
         },
         watch: {
             files: [
-                'component/angular-script-name.js',
+                'component/angular-right-menu.js',
                 'component/controllers/**/*.js',
                 'component/directives/**/*.js',
                 'component/**/*.html',
