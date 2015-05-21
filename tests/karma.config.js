@@ -5,7 +5,7 @@ module.exports = function(config) {
     var bower = 'vendor/';
     var configuration = {
         // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
+        autoWatch: false,
         // base path, that will be used to resolve files and exclude
         basePath: '../',
         // Start these browsers, currently available:
@@ -30,7 +30,6 @@ module.exports = function(config) {
             bower + 'angular-mocks/angular-mocks.js',
             bower + 'angular-sanitize/angular-sanitize.js',
             bower + 'jquery/dist/jquery.js',
-            bower + 'requirejs/require.js',
             'dist/angular-right-menu.js',
             'tests/unit/**/*.js'
         ],

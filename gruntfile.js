@@ -101,10 +101,8 @@ module.exports = function (grunt) {
           unit: {
             configFile: 'tests/karma.config.js',
             background: true,
-            singleRun: true,
-            files: [
-              { src: ['test/unit/**/*.js'], served: true }
-            ]
+            singleRun: false,
+            autoWatch: false
           }
         },
         watch: {
@@ -121,7 +119,7 @@ module.exports = function (grunt) {
                 'ngtemplates',
                 'concat:component',
                 'babel',
-                //'karma:unit:run',
+                'karma:unit:run',
                 'uglify',
                 'copy:main',
                 'copy:css',
