@@ -16,7 +16,7 @@ module.exports = function (grunt) {
         'babel': {
             options: {
                 sourceMap: false,
-                modules: 'amd'
+                modules: 'ignore'
             },
             dist: {
                 files: [{
@@ -39,15 +39,10 @@ module.exports = function (grunt) {
         },
         concat: {
             component: {
-                src: [  '<%= ngtemplates.app.dest %>',
+                src: [  'component/angular-right-menu.js',
+                        '<%= ngtemplates.app.dest %>',
                         'component/**/*.js'
                     ],
-                dest: 'dist/angular-right-menu.js',
-            },
-            app: {
-                src: ['component/angular-right-menu.js',
-                        'dist/angular-right-menu.js'
-                ],
                 dest: 'dist/angular-right-menu.js',
             }
         },
@@ -126,7 +121,6 @@ module.exports = function (grunt) {
                 'ngtemplates',
                 'concat:component',
                 'babel',
-                'concat:app',
                 //'karma:unit:run',
                 'uglify',
                 'copy:main',
@@ -154,7 +148,6 @@ module.exports = function (grunt) {
             'ngtemplates',
             'concat:component',
             'babel',
-            'concat:app',
             'uglify',
             'copy:main',
             'copy:css',
