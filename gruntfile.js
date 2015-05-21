@@ -13,6 +13,21 @@ module.exports = function (grunt) {
             },
             all: ['component/**/*.js', 'tests/unit/**/*.js']
         },
+        'babel': {
+            options: {
+                sourceMap: false,
+                modules: 'amd'
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'dist',
+                    src: ['**/*.js'],
+                    dest: 'dist',
+                    ext: '.js'
+                }]
+            }
+        },
         ngtemplates:  {
             options: {
                 module: 'rmRightMenu'
@@ -23,11 +38,16 @@ module.exports = function (grunt) {
             }
         },
         concat: {
-            app: {
-                src: [  'component/angular-right-menu.js',
-                        '<%= ngtemplates.app.dest %>',
+            component: {
+                src: [  '<%= ngtemplates.app.dest %>',
                         'component/**/*.js'
                     ],
+                dest: 'dist/angular-right-menu.js',
+            },
+            app: {
+                src: ['component/angular-right-menu.js',
+                        'dist/angular-right-menu.js'
+                ],
                 dest: 'dist/angular-right-menu.js',
             }
         },
@@ -86,7 +106,7 @@ module.exports = function (grunt) {
           unit: {
             configFile: 'tests/karma.config.js',
             background: true,
-            singleRun: false,
+            singleRun: true,
             files: [
               { src: ['test/unit/**/*.js'], served: true }
             ]
@@ -104,8 +124,10 @@ module.exports = function (grunt) {
             tasks: [
                 'jshint',
                 'ngtemplates',
-                'concat',
-                'karma:unit:run',
+                'concat:component',
+                'babel',
+                'concat:app',
+                //'karma:unit:run',
                 'uglify',
                 'copy:main',
                 'copy:css',
@@ -118,6 +140,7 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-karma');
@@ -129,7 +152,9 @@ module.exports = function (grunt) {
         [
             'jshint',
             'ngtemplates',
-            'concat',
+            'concat:component',
+            'babel',
+            'concat:app',
             'uglify',
             'copy:main',
             'copy:css',

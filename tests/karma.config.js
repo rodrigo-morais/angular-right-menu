@@ -16,19 +16,21 @@ module.exports = function(config) {
         // - Safari (only Mac)
         // - PhantomJS
         // - IE (only Windows)
-        browsers: ['Chrome', 'ChromeCanary'],
+        browsers: ['PhantomJS'],
+        /*browsers: ['Chrome', 'ChromeCanary'],
         customLaunchers: {
           Chrome_travis_ci: {
             base: 'Chrome',
             flags: ['--no-sandbox']
           }
-        },
+        },*/
         // list of files / patterns to load in the browser
         files: [
             bower + 'angular/angular.js',
             bower + 'angular-mocks/angular-mocks.js',
             bower + 'angular-sanitize/angular-sanitize.js',
             bower + 'jquery/dist/jquery.js',
+            bower + 'requirejs/require.js',
             'dist/angular-right-menu.js',
             'tests/unit/**/*.js'
         ],

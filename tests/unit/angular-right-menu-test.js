@@ -1,9 +1,9 @@
-describe('Unit test to COMPONENT', function() {
+describe('Unit test to rmRightMenu', function () {
   var $compile,
       $rootScope,
       $timeout;
 
-  beforeEach(module('COMPONENT'));
+  beforeEach(module('rmRightMenu'));
 
   beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_){
     $compile = _$compile_;
@@ -12,10 +12,9 @@ describe('Unit test to COMPONENT', function() {
   }));
 
   it('FAKE', function () {
-      var element = '<span></span>',
-          element2 = '<span></span>';
+      var element = '<span></span>';
 
-      expect(element.html()).toContain(element2);
+      expect($(element).find('span').length).toBe(0);
   });
 
 });
