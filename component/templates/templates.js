@@ -4,11 +4,7 @@ angular.module('rmRightMenu').run(['$templateCache', function($templateCache) {
   $templateCache.put('component/templates/angular-right-menu.html',
     "<div class=\"menu\">\r" +
     "\n" +
-    "    <div class=\"title\">\r" +
-    "\n" +
-    "        Menu\r" +
-    "\n" +
-    "    </div>\r" +
+    "    <div class=\"title\">{{title}}</div>\r" +
     "\n" +
     "    <ul>\r" +
     "\n" +
