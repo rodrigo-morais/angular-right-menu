@@ -10,7 +10,8 @@
         replace: false,
         scope: {
             title: '@',
-            backgroundColor: '@'
+            backgroundColor: '@',
+            titleBorderBottomColor: '@'
         },
         controller: rmMenuController,
         link: function (scope, element, attrs, controller) {
@@ -21,6 +22,10 @@
 
             if(!scope.backgroundColor || scope.backgroundColor === ''){
                 scope.backgroundColor = '#F5F5F5';
+            }
+
+            if(!scope.titleBorderBottomColor || scope.titleBorderBottomColor === ''){
+                scope.titleBorderBottomColor = '#f5da55';
             }
 
             scope.$on('change-menu', (event, args) => {
