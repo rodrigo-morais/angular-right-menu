@@ -7,15 +7,20 @@
         restrict: 'E',
         templateUrl: html,
         css: 'app/components/menu/css/menu.css',
-        replace: true,
+        replace: false,
         scope: {
-            title: '@'
+            title: '@',
+            backgroundColor: '@'
         },
         controller: rmMenuController,
         link: function (scope, element, attrs, controller) {
 
             if(!scope.title || scope.title === ''){
                 scope.title = 'Menu';
+            }
+
+            if(!scope.backgroundColor || scope.backgroundColor === ''){
+                scope.backgroundColor = '#F5F5F5';
             }
 
             scope.$on('change-menu', (event, args) => {

@@ -4,7 +4,7 @@ var rmRightMenu = angular.module('rmRightMenu', []);
 angular.module('rmRightMenu').run(['$templateCache', function ($templateCache) {
     'use strict';
 
-    $templateCache.put('component/templates/angular-right-menu.html', '<div class="menu">\r' + '\n' + '    <div class="title">{{title}}</div>\r' + '\n' + '    <ul>\r' + '\n' + '        <li\r' + '\n' + '            data-ng:repeat="menu in menus"\r' + '\n' + '            data-ng:click="select(menu)"\r' + '\n' + '        >\r' + '\n' + '            <a\r' + '\n' + '                href="{{ menu.link }}"\r' + '\n' + '                data-ng:class="{\'selected\': menu.selected}"\r' + '\n' + '            >\r' + '\n' + '                {{ menu.text }}\r' + '\n' + '            </a>\r' + '\n' + '        </li>\r' + '\n' + '    </ul>\r' + '\n' + '</div>');
+    $templateCache.put('component/templates/angular-right-menu.html', '<div class="menu" style="background-color: {{backgroundColor}};">\r' + '\n' + '    <div class="title">{{title}}</div>\r' + '\n' + '    <ul>\r' + '\n' + '        <li\r' + '\n' + '            data-ng:repeat="menu in menus"\r' + '\n' + '            data-ng:click="select(menu)"\r' + '\n' + '        >\r' + '\n' + '            <a\r' + '\n' + '                href="{{ menu.link }}"\r' + '\n' + '                data-ng:class="{\'selected\': menu.selected}"\r' + '\n' + '            >\r' + '\n' + '                {{ menu.text }}\r' + '\n' + '            </a>\r' + '\n' + '        </li>\r' + '\n' + '    </ul>\r' + '\n' + '</div>');
 }]);
 
 var rmMenuController = function rmMenuController($scope) {
@@ -41,15 +41,20 @@ var rmMenuDirective = function rmMenuDirective() {
         restrict: 'E',
         templateUrl: html,
         css: 'app/components/menu/css/menu.css',
-        replace: true,
+        replace: false,
         scope: {
-            title: '@'
+            title: '@',
+            backgroundColor: '@'
         },
         controller: rmMenuController,
         link: function link(scope, element, attrs, controller) {
 
             if (!scope.title || scope.title === '') {
                 scope.title = 'Menu';
+            }
+
+            if (!scope.backgroundColor || scope.backgroundColor === '') {
+                scope.backgroundColor = '#F5F5F5';
             }
 
             scope.$on('change-menu', function (event, args) {

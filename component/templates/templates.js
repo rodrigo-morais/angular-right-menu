@@ -2,7 +2,7 @@ angular.module('rmRightMenu').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('component/templates/angular-right-menu.html',
-    "<div class=\"menu\">\r" +
+    "<div class=\"menu\" style=\"background-color: {{backgroundColor}};\">\r" +
     "\n" +
     "    <div class=\"title\">{{title}}</div>\r" +
     "\n" +
