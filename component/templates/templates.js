@@ -3,7 +3,7 @@ angular.module('rmRightMenu').run(['$templateCache', function($templateCache) {
 
   $templateCache.put('component/templates/angular-right-menu.html',
     "<div class=\"menu\" style=\"background-color: {{backgroundColor}};\">\n" +
-    "    <div class=\"title\" style=\"border-bottom: solid 1px {{titleBorderBottomColor}};\">{{title}}</div>\n" +
+    "    <div class=\"title\" style=\"border-bottom: solid 1px {{titleBorderBottomColor}}; color: {{titleColor}}\">{{title}}</div>\n" +
     "    <ul>\n" +
     "        <li\n" +
     "            data-ng:repeat=\"menu in menus\"\n" +

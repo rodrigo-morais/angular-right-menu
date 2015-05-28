@@ -4,7 +4,7 @@ var rmRightMenu = angular.module('rmRightMenu', []);
 angular.module('rmRightMenu').run(['$templateCache', function ($templateCache) {
     'use strict';
 
-    $templateCache.put('component/templates/angular-right-menu.html', '<div class="menu" style="background-color: {{backgroundColor}};">\n' + '    <div class="title" style="border-bottom: solid 1px {{titleBorderBottomColor}};">{{title}}</div>\n' + '    <ul>\n' + '        <li\n' + '            data-ng:repeat="menu in menus"\n' + '            data-ng:click="select(menu)"\n' + '        >\n' + '            <a\n' + '                href="{{ menu.link }}"\n' + '                data-ng:class="{\'selected\': menu.selected}"\n' + '            >\n' + '                {{ menu.text }}\n' + '            </a>\n' + '        </li>\n' + '    </ul>\n' + '</div>');
+    $templateCache.put('component/templates/angular-right-menu.html', '<div class="menu" style="background-color: {{backgroundColor}};">\n' + '    <div class="title" style="border-bottom: solid 1px {{titleBorderBottomColor}}; color: {{titleColor}}">{{title}}</div>\n' + '    <ul>\n' + '        <li\n' + '            data-ng:repeat="menu in menus"\n' + '            data-ng:click="select(menu)"\n' + '        >\n' + '            <a\n' + '                href="{{ menu.link }}"\n' + '                data-ng:class="{\'selected\': menu.selected}"\n' + '            >\n' + '                {{ menu.text }}\n' + '            </a>\n' + '        </li>\n' + '    </ul>\n' + '</div>');
 }]);
 
 var rmMenuController = function rmMenuController($scope) {
@@ -45,8 +45,8 @@ var rmMenuDirective = function rmMenuDirective() {
         scope: {
             title: '@',
             backgroundColor: '@',
-            titleBorderBottomColor: '@'
-        },
+            titleBorderBottomColor: '@',
+            titleColor: '@' },
         controller: rmMenuController,
         link: function link(scope, element, attrs, controller) {
 
@@ -60,6 +60,10 @@ var rmMenuDirective = function rmMenuDirective() {
 
             if (!scope.titleBorderBottomColor || scope.titleBorderBottomColor === '') {
                 scope.titleBorderBottomColor = '#f5da55';
+            }
+
+            if (!scope.titleColor || scope.titleColor === '') {
+                scope.titleColor = '#000000';
             }
 
             scope.$on('change-menu', function (event, args) {
