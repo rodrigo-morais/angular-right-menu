@@ -1,16 +1,13 @@
-var app = angular.module('myApp', ['COMPONENT']);
+var app = angular.module('myApp', ['rmRightMenu']);
 
 (function(){
     'use strict';
 
-    var controllerId = 'JsonController';
+    var controllerId = 'AppController';
 
     app.controller(controllerId, ['$scope', controller]);
 
     function controller($scope){
-         $scope.styles = styles;
-        };
-    }
-
-
+        
+    };
 })();

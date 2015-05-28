@@ -1,9 +1,7 @@
-﻿import rmMenuController from "components/menu/controllers/rmMenuController";
-
-var rmMenuDirective = () => {
+﻿var rmMenuDirective = () => {
     
 
-    let html = 'app/components/menu/templates/menu.html';
+    let html = 'component/templates/angular-right-menu.html';
 
     return {
         restrict: 'E',
@@ -22,4 +20,4 @@ var rmMenuDirective = () => {
 
 rmMenuDirective.$inject = [];
 
-export default rmMenuDirective;
+rmRightMenu.directive('rmMenu', [rmMenuDirective]);

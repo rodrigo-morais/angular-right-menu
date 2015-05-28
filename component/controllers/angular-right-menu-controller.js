@@ -27,4 +27,4 @@
 
 rmMenuController.$inject = ['$scope'];
 
-export default rmMenuController;
+rmRightMenu.controller('rmMenuController', [rmMenuController]);

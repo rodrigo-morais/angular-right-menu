@@ -32,9 +32,10 @@ var rmMenuController = function rmMenuController($scope) {
 
 rmMenuController.$inject = ['$scope'];
 
+rmRightMenu.controller('rmMenuController', [rmMenuController]);
 var rmMenuDirective = function rmMenuDirective() {
 
-    var html = 'app/components/menu/templates/menu.html';
+    var html = 'component/templates/angular-right-menu.html';
 
     return {
         restrict: 'E',
@@ -52,3 +53,5 @@ var rmMenuDirective = function rmMenuDirective() {
 };
 
 rmMenuDirective.$inject = [];
+
+rmRightMenu.directive('rmMenu', [rmMenuDirective]);
