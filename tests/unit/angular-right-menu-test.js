@@ -150,4 +150,28 @@ describe('Unit test to rmRightMenu', function () {
       expect(element.html().replace(/(\r\n|\n|\r)/gm, "").replace(/\t+/g, "")).toContain(menuReturn);
   });
 
+  it('Verify when items of menu is informed if correct quantity of items in scope', function () {
+      var element = $compile("<rm-menu data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope);
+
+      $rootScope.$digest();
+
+      expect(element.isolateScope().items.length).toBe(3);
+  });
+
+  it('Verify when items of menu is not informed if correct quantity of items in scope', function () {
+      var element = $compile("<rm-menu></rm-menu>")($rootScope);
+
+      $rootScope.$digest();
+
+      expect(element.isolateScope().items.length).toBe(0);
+  });
+
+  it('Verify when items of menu is informed if first item in scope has correct text', function () {
+      var element = $compile("<rm-menu data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope);
+
+      $rootScope.$digest();
+
+      expect(element.isolateScope().items[0].text).toBe('Add Spent');
+  });
+
 });

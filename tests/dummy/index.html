@@ -2,16 +2,17 @@
     <head>
         <link rel="stylesheet" href="vendor/angular-right-menu/assets/angular-right-menu.css">
     </head>
-    <body ng-app="myApp">
+    <body ng-app="myApp" ng-controller="AppController">
 
         <rm-menu
             data-title="Title"
             data-background:color="#F5F5FF"
             data-title-border-bottom:color="#000000"
             data-title:color="#FFFFFF"
+            data-items="items"
         >
         </rm-menu>
-
+        
         <script src="vendor/angular/angular.js"></script>
         <script src="vendor/angular-right-menu/angular-right-menu.js"></script>
         <script src="javascript/app.js"></script>

@@ -6,14 +6,14 @@ angular.module('rmRightMenu').run(['$templateCache', function($templateCache) {
     "    <div class=\"title\" style=\"border-bottom: solid 1px {{titleBorderBottomColor}}; color: {{titleColor}}\">{{title}}</div>\n" +
     "    <ul>\n" +
     "        <li\n" +
-    "            data-ng:repeat=\"menu in menus\"\n" +
-    "            data-ng:click=\"select(menu)\"\n" +
+    "            data-ng:repeat=\"item in items\"\n" +
+    "            data-ng:click=\"select(item)\"\n" +
     "        >\n" +
     "            <a\n" +
-    "                href=\"{{ menu.link }}\"\n" +
-    "                data-ng:class=\"{'selected': menu.selected}\"\n" +
+    "                href=\"{{ item.link }}\"\n" +
+    "                data-ng:class=\"{'selected': item.selected}\"\n" +
     "            >\n" +
-    "                {{ menu.text }}\n" +
+    "                {{ item.text }}\n" +
     "            </a>\n" +
     "        </li>\n" +
     "    </ul>\n" +

@@ -2,14 +2,14 @@
     <div class="title" style="border-bottom: solid 1px {{titleBorderBottomColor}}; color: {{titleColor}}">{{title}}</div>
     <ul>
         <li
-            data-ng:repeat="menu in menus"
-            data-ng:click="select(menu)"
+            data-ng:repeat="item in items"
+            data-ng:click="select(item)"
         >
             <a
-                href="{{ menu.link }}"
-                data-ng:class="{'selected': menu.selected}"
+                href="{{ item.link }}"
+                data-ng:class="{'selected': item.selected}"
             >
-                {{ menu.text }}
+                {{ item.text }}
             </a>
         </li>
     </ul>

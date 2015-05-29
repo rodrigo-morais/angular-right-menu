@@ -32,6 +32,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 .menu ul li a
@@ -39,7 +40,7 @@
     cursor: pointer;
     width: 100%;
     margin: 0;
-    padding: 0 0 0 25%;
+    /*padding: 0 0 0 25%;*/
     font-family: 'Arial';
     color: #8c8e87;
     text-decoration: none;
@@ -53,7 +54,7 @@
     cursor: pointer;
     width: calc(100% - 2px);
     margin: 0;
-    padding: 0 0 0 25%;
+    /*padding: 0 0 0 25%;*/
     color: #000000;
     border-left: solid 2px #f5da55;
     background-color: #FFFAF0;

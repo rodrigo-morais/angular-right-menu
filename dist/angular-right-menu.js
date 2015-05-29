@@ -4,27 +4,13 @@ var rmRightMenu = angular.module('rmRightMenu', []);
 angular.module('rmRightMenu').run(['$templateCache', function ($templateCache) {
     'use strict';
 
-    $templateCache.put('component/templates/angular-right-menu.html', '<div class="menu" style="background-color: {{backgroundColor}};">\n' + '    <div class="title" style="border-bottom: solid 1px {{titleBorderBottomColor}}; color: {{titleColor}}">{{title}}</div>\n' + '    <ul>\n' + '        <li\n' + '            data-ng:repeat="menu in menus"\n' + '            data-ng:click="select(menu)"\n' + '        >\n' + '            <a\n' + '                href="{{ menu.link }}"\n' + '                data-ng:class="{\'selected\': menu.selected}"\n' + '            >\n' + '                {{ menu.text }}\n' + '            </a>\n' + '        </li>\n' + '    </ul>\n' + '</div>');
+    $templateCache.put('component/templates/angular-right-menu.html', '<div class="menu" style="background-color: {{backgroundColor}};">\n' + '    <div class="title" style="border-bottom: solid 1px {{titleBorderBottomColor}}; color: {{titleColor}}">{{title}}</div>\n' + '    <ul>\n' + '        <li\n' + '            data-ng:repeat="item in items"\n' + '            data-ng:click="select(item)"\n' + '        >\n' + '            <a\n' + '                href="{{ item.link }}"\n' + '                data-ng:class="{\'selected\': item.selected}"\n' + '            >\n' + '                {{ item.text }}\n' + '            </a>\n' + '        </li>\n' + '    </ul>\n' + '</div>');
 }]);
 
 var rmMenuController = function rmMenuController($scope) {
-    $scope.menus = [{
-        text: 'Add Spent',
-        link: '/#spent',
-        selected: true
-    }, {
-        text: 'Daily Spendings',
-        link: '/#daily',
-        selected: false
-    }, {
-        text: 'Monthly Spendings',
-        link: '/#monthly',
-        selected: false
-    }];
-
-    $scope.select = function (menu) {
-        $scope.menus.forEach(function (_menu) {
-            _menu.selected = false;
+    $scope.select = function (item) {
+        $scope.items.forEach(function (_item) {
+            _item.selected = false;
         });
         menu.selected = true;
     };
@@ -46,7 +32,9 @@ var rmMenuDirective = function rmMenuDirective() {
             title: '@',
             backgroundColor: '@',
             titleBorderBottomColor: '@',
-            titleColor: '@' },
+            titleColor: '@',
+            items: '=?'
+        },
         controller: rmMenuController,
         link: function link(scope, element, attrs, controller) {
 
@@ -64,6 +52,10 @@ var rmMenuDirective = function rmMenuDirective() {
 
             if (!scope.titleColor || scope.titleColor === '') {
                 scope.titleColor = '#000000';
+            }
+
+            if (!scope.items) {
+                scope.items = [];
             }
 
             scope.$on('change-menu', function (event, args) {
