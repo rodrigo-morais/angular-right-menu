@@ -16,7 +16,8 @@
             items: '=?',
             itemSelectedColor: '@',
             itemSelectedBackColor: '@',
-            itemSelectedBorderLeft: '@'
+            itemSelectedBorderLeft: '@',
+            itemColor: '@'
         },
         controller: rmMenuController,
         link: function (scope, element, attrs, controller) {
@@ -51,6 +52,10 @@
 
             if(!scope.itemSelectedBorderLeft || scope.itemSelectedBorderLeft === ''){
                 scope.itemSelectedBorderLeft = 'solid 2px #f5da55';
+            }
+
+            if(!scope.itemColor || scope.itemColor === ''){
+                scope.itemColor = '#8c8e87';
             }
 
             scope.$on('change-menu', (event, args) => {

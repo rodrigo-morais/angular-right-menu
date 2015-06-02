@@ -192,7 +192,7 @@ describe('Unit test to rmRightMenu', function () {
 
   it('Verify when item selected color of menu is not informed if correct color is presented', function () {
       var element = $compile("<rm-menu data-item-selected:color='#FFFFFF' data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope),
-          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft}" class="ng-binding selected" style="color: rgb(255, 255, 255); background-color: rgb(255, 250, 240); border-left-style: solid; border-left-width: 2px; border-left-color: rgb(245, 218, 85); ">';
+          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft} || item.selected === false &amp;&amp; {\'color\': itemColor}" class="ng-binding selected" style="color: rgb(255, 255, 255); background-color: rgb(255, 250, 240); border-left-style: solid; border-left-width: 2px; border-left-color: rgb(245, 218, 85); ">';
 
       $rootScope.$digest();
 
@@ -201,7 +201,7 @@ describe('Unit test to rmRightMenu', function () {
 
   it('Verify when item selected color of menu is informed if correct color is presented', function () {
       var element = $compile("<rm-menu data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope),
-          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft}" class="ng-binding selected" style="color: rgb(0, 0, 0); background-color: rgb(255, 250, 240); border-left-style: solid; border-left-width: 2px; border-left-color: rgb(245, 218, 85); ">';
+          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft} || item.selected === false &amp;&amp; {\'color\': itemColor}" class="ng-binding selected" style="color: rgb(0, 0, 0); background-color: rgb(255, 250, 240); border-left-style: solid; border-left-width: 2px; border-left-color: rgb(245, 218, 85); ">';
 
       $rootScope.$digest();
 
@@ -226,7 +226,7 @@ describe('Unit test to rmRightMenu', function () {
 
   it('Verify when item selected back-color of menu is not informed if correct color is presented', function () {
       var element = $compile("<rm-menu data-item-selected-back:color='#FFFFFF' data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope),
-          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft}" class="ng-binding selected" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-left-style: solid; border-left-width: 2px; border-left-color: rgb(245, 218, 85); ">';
+          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft} || item.selected === false &amp;&amp; {\'color\': itemColor}" class="ng-binding selected" style="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-left-style: solid; border-left-width: 2px; border-left-color: rgb(245, 218, 85); ">';
 
       $rootScope.$digest();
 
@@ -235,7 +235,7 @@ describe('Unit test to rmRightMenu', function () {
 
   it('Verify when item selected back-color of menu is informed if correct color is presented', function () {
       var element = $compile("<rm-menu data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope),
-          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft}" class="ng-binding selected" style="color: rgb(0, 0, 0); background-color: rgb(255, 250, 240); border-left-style: solid; border-left-width: 2px; border-left-color: rgb(245, 218, 85); ">';
+          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft} || item.selected === false &amp;&amp; {\'color\': itemColor}" class="ng-binding selected" style="color: rgb(0, 0, 0); background-color: rgb(255, 250, 240); border-left-style: solid; border-left-width: 2px; border-left-color: rgb(245, 218, 85); ">';
 
       $rootScope.$digest();
 
@@ -260,13 +260,51 @@ describe('Unit test to rmRightMenu', function () {
 
   it('Verify when item selected border of menu is not informed if correct border is presented', function () {
       var element = $compile("<rm-menu data-item-selected-border-left='solid 1px #000000' data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope),
-          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft}" class="ng-binding selected" style="color: rgb(0, 0, 0); background-color: rgb(255, 250, 240); border-left-style: solid; border-left-width: 1px; border-left-color: rgb(0, 0, 0); ">';
+          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft} || item.selected === false &amp;&amp; {\'color\': itemColor}" class="ng-binding selected" style="color: rgb(0, 0, 0); background-color: rgb(255, 250, 240); border-left-style: solid; border-left-width: 1px; border-left-color: rgb(0, 0, 0); ">';
 
       $rootScope.$digest();
 
       expect(element.html().replace(/(\r\n|\n|\r)/gm, "").replace(/\t+/g, "")).toContain(menuReturn);
   });
 
+  it('Verify when item selected border of menu is informed if correct border is presented', function () {
+      var element = $compile("<rm-menu data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope),
+          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft} || item.selected === false &amp;&amp; {\'color\': itemColor}" class="ng-binding selected" style="color: rgb(0, 0, 0); background-color: rgb(255, 250, 240); border-left-style: solid; border-left-width: 2px; border-left-color: rgb(245, 218, 85); ">';
+
+      $rootScope.$digest();
+
+      expect(element.html().replace(/(\r\n|\n|\r)/gm, "").replace(/\t+/g, "")).toContain(menuReturn);
+  });
+
+
+
+
+
+  it('Verify when item not selected and color of menu is informed if correct color is in scope', function () {
+      var element = $compile("<rm-menu data-item-color='#000000'></rm-menu>")($rootScope);
+
+      $rootScope.$digest();
+
+      expect(element.isolateScope().itemColor).toBe('#000000');
+  });
+
+  it('Verify when item selected border of menu is not informed if correct border is in scope', function () {
+      var element = $compile("<rm-menu></rm-menu>")($rootScope);
+
+      $rootScope.$digest();
+
+      expect(element.isolateScope().itemColor).toBe('#8c8e87');
+  });
+
+  it('Verify when item selected border of menu is not informed if correct border is presented', function () {
+      var element = $compile("<rm-menu data-item-color='#000000' data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope),
+          menuReturn = '<a href="/#daily" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft} || item.selected === false &amp;&amp; {\'color\': itemColor}" class="ng-binding" style="color: rgb(0, 0, 0); ">';
+
+      $rootScope.$digest();
+
+      expect(element.html().replace(/(\r\n|\n|\r)/gm, "").replace(/\t+/g, "")).toContain(menuReturn);
+  });
+/*
   it('Verify when item selected back-color of menu is informed if correct color is presented', function () {
       var element = $compile("<rm-menu data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope),
           menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor, \'background-color\': itemSelectedBackColor, \'border-left\': itemSelectedBorderLeft}" class="ng-binding selected" style="color: rgb(0, 0, 0); background-color: rgb(255, 250, 240); border-left-style: solid; border-left-width: 2px; border-left-color: rgb(245, 218, 85); ">';
@@ -275,5 +313,5 @@ describe('Unit test to rmRightMenu', function () {
 
       expect(element.html().replace(/(\r\n|\n|\r)/gm, "").replace(/\t+/g, "")).toContain(menuReturn);
   });
-
+*/
 });
