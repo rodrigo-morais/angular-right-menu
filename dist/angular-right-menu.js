@@ -12,7 +12,7 @@ var rmMenuController = function rmMenuController($scope) {
         $scope.items.forEach(function (_item) {
             _item.selected = false;
         });
-        menu.selected = true;
+        item.selected = true;
     };
 };
 
