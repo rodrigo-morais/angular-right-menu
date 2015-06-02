@@ -14,7 +14,8 @@
             titleBorderBottomColor: '@',
             titleColor: '@',
             items: '=?',
-            itemSelectedColor: '@'
+            itemSelectedColor: '@',
+            itemSelectedBackColor: '@'
         },
         controller: rmMenuController,
         link: function (scope, element, attrs, controller) {
@@ -41,6 +42,10 @@
 
             if(!scope.itemSelectedColor || scope.itemSelectedColor === ''){
                 scope.itemSelectedColor = '#000000';
+            }
+
+            if(!scope.itemSelectedBackColor || scope.itemSelectedBackColor === ''){
+                scope.itemSelectedBackColor = '#FFFAF0';
             }
 
             scope.$on('change-menu', (event, args) => {
