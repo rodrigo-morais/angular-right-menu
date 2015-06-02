@@ -8,6 +8,7 @@
             <a
                 href="{{ item.link }}"
                 data-ng:class="{'selected': item.selected}"
+                data-ng:style="item.selected && {'color': itemSelectedColor}"
             >
                 {{ item.text }}
             </a>

@@ -174,4 +174,42 @@ describe('Unit test to rmRightMenu', function () {
       expect(element.isolateScope().items[0].text).toBe('Add Spent');
   });
 
+
+
+
+
+  it('Verify when item selected color of menu is informed if correct color is in scope', function () {
+      var element = $compile("<rm-menu data-item-selected:color='#FFFFFF'></rm-menu>")($rootScope);
+
+      $rootScope.$digest();
+
+      expect(element.isolateScope().itemSelectedColor).toBe('#FFFFFF');
+  });
+
+  it('Verify when item selected color of menu is not informed if correct color is in scope', function () {
+      var element = $compile("<rm-menu></rm-menu>")($rootScope);
+
+      $rootScope.$digest();
+
+      expect(element.isolateScope().itemSelectedColor).toBe('#000000');
+  });
+
+  it('Verify when item selected color of menu is not informed if correct color is presented', function () {
+      var element = $compile("<rm-menu data-item-selected:color='#FFFFFF' data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope),
+          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor}" class="ng-binding selected" style="color: rgb(255, 255, 255); ">';
+
+      $rootScope.$digest();
+
+      expect(element.html().replace(/(\r\n|\n|\r)/gm, "").replace(/\t+/g, "")).toContain(menuReturn);
+  });
+
+  it('Verify when item selected color of menu is informed if correct color is presented', function () {
+      var element = $compile("<rm-menu data-items='[{\"text\": \"Add Spent\",link: \"/#spent\",\"selected\": true},{\"text\": \"Daily Spendings\",\"link\": \"/#daily\",\"selected\": false},{\"text\": \"Monthly Spendings\",\"link\": \"/#monthly\",\"selected\": false}]'></rm-menu>")($rootScope),
+          menuReturn = '<a href="/#spent" data-ng:class="{\'selected\': item.selected}" data-ng:style="item.selected &amp;&amp; {\'color\': itemSelectedColor}" class="ng-binding selected" style="color: rgb(0, 0, 0); ">';
+
+      $rootScope.$digest();
+
+      expect(element.html().replace(/(\r\n|\n|\r)/gm, "").replace(/\t+/g, "")).toContain(menuReturn);
+  });
+
 });

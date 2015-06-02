@@ -12,6 +12,7 @@ angular.module('rmRightMenu').run(['$templateCache', function($templateCache) {
     "            <a\n" +
     "                href=\"{{ item.link }}\"\n" +
     "                data-ng:class=\"{'selected': item.selected}\"\n" +
+    "                data-ng:style=\"item.selected && {'color': itemSelectedColor}\"\n" +
     "            >\n" +
     "                {{ item.text }}\n" +
     "            </a>\n" +
