@@ -146,7 +146,6 @@ module.exports = function (grunt) {
             'ngtemplates',
             'concat:component',
             'babel',
-            'karma:unit:run',
             'uglify',
             'copy:main',
             'copy:css',
