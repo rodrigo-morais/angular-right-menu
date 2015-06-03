@@ -16,14 +16,13 @@ module.exports = function(config) {
         // - Safari (only Mac)
         // - PhantomJS
         // - IE (only Windows)
-        browsers: ['PhantomJS'],
-        /*browsers: ['Chrome', 'ChromeCanary'],
+        browsers: ['Chrome', 'ChromeCanary'],
         customLaunchers: {
           Chrome_travis_ci: {
             base: 'Chrome',
             flags: ['--no-sandbox']
           }
-        },*/
+        },
         // list of files / patterns to load in the browser
         files: [
             bower + 'angular/angular.js',
