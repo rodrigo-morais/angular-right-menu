@@ -42,6 +42,7 @@ module.exports = function(config) {
         logLevel: config.LOG_INFO,
         // web server port
         port: 8999,
+        runnerPort: 8999,
         // Continuous Integration mode
         // if true, it capture browsers, run tests and exit
         singleRun: false,
