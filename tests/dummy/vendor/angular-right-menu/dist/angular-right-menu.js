@@ -26,7 +26,7 @@ var rmMenuDirective = function rmMenuDirective() {
     return {
         restrict: 'E',
         templateUrl: html,
-        css: 'app/components/menu/css/menu.css',
+        css: 'vendor/angular-right-menu/dist/assets/angular-right-menu.css',
         replace: false,
         scope: {
             title: '@',

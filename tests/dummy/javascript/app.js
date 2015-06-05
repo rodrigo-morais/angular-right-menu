@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['rmRightMenu']);
+var app = angular.module('myApp', ['door3.css', 'rmRightMenu']);
 
 (function(){
     'use strict';

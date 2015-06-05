@@ -93,7 +93,7 @@ module.exports = function (grunt) {
           dummy: {
             cwd: './dist/',
             src: '**',
-            dest: 'tests/dummy/vendor/angular-right-menu',
+            dest: 'tests/dummy/vendor/angular-right-menu/dist',
             expand: true
           }
         },
