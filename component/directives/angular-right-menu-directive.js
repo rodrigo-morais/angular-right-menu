@@ -59,7 +59,7 @@
             }
 
             scope.$on('change-menu', (event, args) => {
-                let menu = scope.menus[args.position];
+                let menu = scope.items[args.position];
                 scope.select(menu);
             });
         }

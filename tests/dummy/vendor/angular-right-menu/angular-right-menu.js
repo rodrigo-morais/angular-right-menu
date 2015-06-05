@@ -79,7 +79,7 @@ var rmMenuDirective = function rmMenuDirective() {
             }
 
             scope.$on('change-menu', function (event, args) {
-                var menu = scope.menus[args.position];
+                var menu = scope.items[args.position];
                 scope.select(menu);
             });
         }
