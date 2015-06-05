@@ -11,6 +11,10 @@ To install witn Bower:
 $ bower install angular-right-menu --save-dev
 ```
 
+## Dependencies
+To use this component is necessary loading the components below:
+ - <a href="https://github.com/door3/angular-css">angular-css</a>
+
 ## Example
 
 To use this component is need call it in a template to passing menu items that should exist in a controller, directive or another stuff of project where component was installed.
