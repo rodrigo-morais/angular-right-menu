@@ -41,7 +41,8 @@ module.exports = function(config) {
         // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
         logLevel: config.LOG_INFO,
         // web server port
-        
+        port: 9999,
+        runnerPort: 9999,
         // Continuous Integration mode
         // if true, it capture browsers, run tests and exit
         singleRun: false,

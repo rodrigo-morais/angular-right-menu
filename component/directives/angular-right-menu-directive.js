@@ -6,7 +6,7 @@
     return {
         restrict: 'E',
         templateUrl: html,
-        css: 'vendor/angular-right-menu/dist/assets/angular-right-menu.css',
+        //css: 'vendor/angular-right-menu/dist/assets/angular-right-menu.css',
         replace: false,
         scope: {
             title: '@',
@@ -65,7 +65,5 @@
         }
     };
 };
-
-rmMenuDirective.$inject = [];
 
 rmRightMenu.directive('rmMenu', [rmMenuDirective]);

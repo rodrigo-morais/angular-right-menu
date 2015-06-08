@@ -1,5 +1,11 @@
 var app = angular.module('myApp', ['door3.css', 'rmRightMenu']);
 
+app.config(["rmRightMenuCSSProvider", function(rmRightMenuCSSProvider){
+  var i = rmRightMenuCSSProvider.path;
+  rmRightMenuCSSProvider.setCSSPath('vendor-test/angular-right-menu/dist/assets/angular-right-menu.css');
+  var j = rmRightMenuCSSProvider.path;
+}]);
+
 (function(){
     'use strict';
 

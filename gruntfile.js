@@ -41,7 +41,10 @@ module.exports = function (grunt) {
             component: {
                 src: [  'component/angular-right-menu.js',
                         '<%= ngtemplates.app.dest %>',
-                        'component/**/*.js'
+                        'component/*.js',
+                        'component/providers/*.js',
+                        'component/controllers/*.js',
+                        'component/directives/*.js'
                     ],
                 dest: 'dist/angular-right-menu.js',
             }
@@ -93,16 +96,14 @@ module.exports = function (grunt) {
           dummy: {
             cwd: './dist/',
             src: '**',
-            dest: 'tests/dummy/vendor/angular-right-menu/dist',
+            dest: 'tests/dummy/vendor-test/angular-right-menu/dist',
             expand: true
           }
         },
         karma: {
           unit: {
             configFile: 'tests/karma.config.js',
-            background: true,
-            singleRun: false,
-            autoWatch: false
+            background: true
           }
         },
         watch: {
@@ -110,6 +111,7 @@ module.exports = function (grunt) {
                 'component/angular-right-menu.js',
                 'component/controllers/**/*.js',
                 'component/directives/**/*.js',
+                'component/providers/**/*.js',
                 'component/**/*.html',
                 'component/assets/**/*.css',
                 'tests/unit/**/*.js'
