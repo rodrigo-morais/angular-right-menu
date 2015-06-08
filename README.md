@@ -15,6 +15,13 @@ $ bower install angular-right-menu --save-dev
 To use this component is necessary loading the components below:
  - <a href="https://github.com/door3/angular-css">angular-css</a>
 
+The angular-css module will load the CSS to in standard path: "vendor/angular-right-menu/dist/assets/angular-right-menu.css".
+If module is installed in a path different than "vendor" the path of CSS have to change using provider "rmRightMenuCSSProvider".
+
+app.config(["rmRightMenuCSSProvider", function(rmRightMenuCSSProvider){
+  rmRightMenuCSSProvider.setCSSPath('vendor-test/angular-right-menu/dist/assets/angular-right-menu.css');
+}]);
+
 ## Example
 
 To use this component is need call it in a template to passing menu items that should exist in a controller, directive or another stuff of project where component was installed.
