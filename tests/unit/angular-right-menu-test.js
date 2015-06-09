@@ -5,6 +5,7 @@ describe('Unit test to rmRightMenu', function () {
       $rootScope,
       $timeout;
 
+  beforeEach(module('door3.css'));
   beforeEach(module('rmRightMenu'));
 
   beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_){

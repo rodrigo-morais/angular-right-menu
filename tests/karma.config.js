@@ -29,6 +29,7 @@ module.exports = function(config) {
             bower + 'angular-mocks/angular-mocks.js',
             bower + 'angular-sanitize/angular-sanitize.js',
             bower + 'jquery/dist/jquery.js',
+            bower + 'angular-css/angular-css.js',
             'dist/angular-right-menu.js',
             'tests/unit/**/*.js'
         ],

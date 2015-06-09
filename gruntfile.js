@@ -103,7 +103,9 @@ module.exports = function (grunt) {
         karma: {
           unit: {
             configFile: 'tests/karma.config.js',
-            background: true
+            background: true,
+            port: 9999,
+            runnerPort: 9999
           }
         },
         watch: {
