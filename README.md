@@ -18,9 +18,11 @@ To use this component is necessary loading the components below:
 The angular-css module will load the CSS to in standard path: "vendor/angular-right-menu/dist/assets/angular-right-menu.css".
 If module is installed in a path different than "vendor" the path of CSS have to change using provider "rmRightMenuCSSProvider".
 
+```sh
 app.config(["rmRightMenuCSSProvider", function(rmRightMenuCSSProvider){
   rmRightMenuCSSProvider.setCSSPath('vendor-test/angular-right-menu/dist/assets/angular-right-menu.css');
 }]);
+```
 
 ## Example
 
